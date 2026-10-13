@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+    color: #8a8378;
+  }
+  .eyebrow-dark {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+    color: #7d8a87;
+  }
+  .display {
+    @apply font-light tracking-[-0.03em] leading-[1.03];
+    text-wrap: balance;
+  }
+  .display-accent { color: #d84e33; }
+  .display-italic {
+    @apply italic;
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+  .panel {
+    @apply border bg-paper-card;
+    border-color: rgba(23, 35, 33, 0.14);
+  }
+  .btn-brand {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors;
+    background-color: #d84e33;
+    color: #f8f6ee;
+  }
+  .btn-brand:hover { background-color: #ae4732; }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors border;
+    border-color: rgba(23, 35, 33, 0.22);
+    color: #172321;
+  }
+  .btn-ghost:hover { border-color: #d84e33; color: #d84e33; }
+
+  /* Unconfirmed business fact — must be replaced before launch. */
+  .tbd {
+    @apply font-mono text-[10px] uppercase tracking-[0.12em];
+    border: 1px dashed rgba(23, 35, 33, 0.45);
+    color: #6f6a60;
+    padding: 1px 7px;
+  }
+}

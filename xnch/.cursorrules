@@ -1,0 +1,39 @@
+/* Team-Specific  */
+Team: XNCH
+Website: https://xnch.ai
+Contact: founders@xnch.ai
+Language: English
+
+/* Code Preferences */
+Tabs: 2 spaces
+Quoting: single quotes
+Semicolons: yes
+End of line: LF
+Insert final newline: yes
+
+/* Project Context */
+Project Type: Next.js website with TypeScript and Tailwind CSS
+Purpose: Minimal, production-ready website for XNCH AI initiative
+Design: Modern research lab aesthetic - clean, minimal, typography-focused
+Tone: Intellectually calm, high-agency, quiet confidence
+
+/* Architecture */
+- App Router (src/app/)
+- Static site generation where possible
+- Component-based architecture
+- No heavy animation libraries
+- Optimized for performance and accessibility
+
+/* Coding Style */
+- TypeScript strict mode
+- Functional components with hooks
+- Semantic HTML5
+- Tailwind utility classes
+- Clean, readable code favored over cleverness
+- No comments unless explaining complex logic
+
+/* Key Principles */
+- Intelligence must be guided, not just scaled
+- Technology should deepen human capability, not erode it
+- Calm, thoughtful systems will outlast reactive ones
+- Serious infrastructure is built quietly before it is recognized loudly

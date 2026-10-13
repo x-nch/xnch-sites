@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  p {
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-architectural {
+    @apply max-w-4xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .text-premium {
+    @apply leading-relaxed text-gray-700;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .section-padding-sm {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .border-subtle {
+    @apply border border-gray-200;
+  }
+
+  .accent-motif {
+    background: linear-gradient(135deg, transparent 0%, rgba(30, 64, 175, 0.05) 50%, transparent 100%);
+  }
+
+  .accent-motif-border {
+    border: 1px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #1e40af, #3b82f6) border-box;
+    border-radius: 0.5rem;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.1s;
+  }
+  .fade-in-delay-2 {
+    animation-delay: 0.2s;
+  }
+  .fade-in-delay-3 {
+    animation-delay: 0.35s;
+  }
+  .fade-in-delay-4 {
+    animation-delay: 0.5s;
+  }
+
+  .architecture-line {
+    @apply w-px h-full bg-gray-300;
+  }
+
+  .architecture-node {
+    @apply border-subtle bg-white px-6 py-4;
+  }
+
+  .architecture-node-label {
+    @apply text-xs font-medium tracking-wider text-gray-500 uppercase;
+  }
+
+  .architecture-node-title {
+    @apply text-sm font-medium text-gray-900 mt-1;
+  }
+
+  .architecture-node-desc {
+    @apply text-xs text-gray-500 mt-1 leading-relaxed;
+  }
+
+  .pill {
+    @apply inline-block px-4 py-1.5 text-xs font-medium tracking-wider uppercase border border-gray-200 rounded-full;
+  }
+
+  .pill-accent {
+    @apply inline-block px-4 py-1.5 text-xs font-medium tracking-wider uppercase border border-accent text-accent rounded-full;
+  }
+
+  .stat-value {
+    @apply text-5xl md:text-6xl font-light tracking-tight text-gray-900;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium tracking-wider text-gray-500 uppercase mt-3;
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ------------------------------------------------------------------
+   Public-site system (xnchSystems design comp)
+   Scoped utilities — these are additive and do not override the base
+   layer, so pages that have not been migrated yet render unchanged.
+   ------------------------------------------------------------------ */
+
+@layer components {
+  /* Uppercase tracked monospace eyebrow that opens each section. */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+    color: #8a8378;
+  }
+  .eyebrow-dark {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+    color: #7d8a87;
+  }
+
+  /* Display headline. Accent runs render in the single brand colour. */
+  .display {
+    @apply font-light tracking-[-0.03em] leading-[1.02];
+    text-wrap: balance;
+  }
+  .display-accent {
+    color: #d84e33;
+  }
+  .display-italic {
+    @apply italic;
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+
+  /* Hairline rules. */
+  .rule {
+    @apply w-full border-t;
+    border-color: rgba(23, 35, 33, 0.12);
+  }
+  .rule-dark {
+    @apply w-full border-t;
+    border-color: rgba(243, 240, 232, 0.16);
+  }
+
+  /* Graph-paper grid used behind the architecture diagram. */
+  .grid-lines {
+    background-color: #e9e8df;
+    background-image:
+      linear-gradient(rgba(23, 35, 33, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 35, 33, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .panel {
+    @apply bg-paper-card border;
+    border-color: rgba(23, 35, 33, 0.14);
+  }
+  .panel-dark {
+    @apply border;
+    border-color: rgba(243, 240, 232, 0.14);
+  }
+
+  .btn-brand {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors;
+    background-color: #d84e33;
+    color: #f8f6ee;
+  }
+  .btn-brand:hover {
+    background-color: #ae4732;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors border;
+    border-color: rgba(23, 35, 33, 0.22);
+    color: #172321;
+  }
+  .btn-ghost:hover {
+    border-color: #d84e33;
+    color: #d84e33;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
