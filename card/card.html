@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>xnchSystems — visiting card</title>
+
+<!-- ══════════════════════════════════════════════════════════════
+     EDIT THESE VALUES — everything on both sides comes from here.
+     Save, then re-run:  node render.js
+     ══════════════════════════════════════════════════════════════ -->
+<script type="text/plain" id="card-data">
+{
+  "name":     "Pavan Kalle",
+  "role":     "Founder",
+  "email":    "hello@x-nch.com",
+  "url":      "www.x-nch.com",
+  "urlHref":  "https://www.x-nch.com",
+  "tagline":  "governed autonomy",
+  "backline": "AI systems & orchestration"
+}
+</script>
+<!-- ════════════════════════════════════════════════════════════ -->
+
+<style>
+  /* ---- tokens — matches xnchSystems site ---- */
+  :root {
+    --paper: #f3f0e8;
+    --ink:   #172321;
+    --brand: #d84e33;
+    --hair:  rgba(23, 35, 33, 0.16);
+
+    /* ---- physical ---- */
+    --trim-w: 89mm;   /* 3.5in */
+    --trim-h: 51mm;   /* 2in   */
+    --bleed:  3mm;
+  }
+
+  @page { size: 95mm 57mm; margin: 0; }   /* trim + 3mm bleed each side */
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { background: #fff; }
+
+  .card {
+    position: relative;
+    width:  calc(var(--trim-w) + var(--bleed) * 2);
+    height: calc(var(--trim-h) + var(--bleed) * 2);
+    background: var(--paper);
+    overflow: hidden;
+    font-family: Inter, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* live area sits inside the trim */
+  .live {
+    position: absolute;
+    inset: var(--bleed);
+    padding: 6.5mm 7mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  /* ---------------- FRONT ---------------- */
+  .front .brand { display: flex; align-items: center; gap: 2.6mm; }
+
+  .mark {
+    width: 6.2mm; height: 6.2mm;
+    border: 0.5mm solid var(--brand);
+    display: grid; place-items: center;
+    flex: none;
+  }
+  .mark i { width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--brand); }
+
+  .wordmark { font-size: 6.4pt; font-weight: 600; letter-spacing: 0.22em; }
+  .strap    { font-size: 4.6pt; color: rgba(23,35,33,.45); letter-spacing: 0.18em; margin-top: 0.9mm; }
+
+  .spacer { flex: 1; }
+
+  .rule { height: 0.18mm; background: var(--hair); margin-bottom: 2.4mm; }
+
+  .who .name { font-size: 7.2pt; font-weight: 400; letter-spacing: 0.02em; }
+  .who .role { font-size: 4.8pt; color: rgba(23,35,33,.48); letter-spacing: 0.16em; margin-top: 1mm; }
+
+  /* ---------------- BACK ---------------- */
+  .back .live { align-items: flex-start; }
+  .back .top { display: flex; align-items: flex-start; justify-content: space-between; width: 100%; }
+
+  .qr { width: 17mm; height: 17mm; flex: none; margin-top: 0.6mm; }
+  .qr svg { width: 100%; height: 100%; display: block; }
+
+  .backline { font-size: 4.8pt; color: rgba(23,35,33,.42); letter-spacing: 0.18em; text-align: right; padding-top: 1mm; }
+
+  .contacts { display: flex; flex-direction: column; gap: 1.5mm; }
+  .contacts a, .contacts span {
+    font-size: 5.6pt; letter-spacing: 0.13em; color: var(--ink);
+    text-decoration: none; display: block;
+  }
+  .contacts .url { color: var(--brand); }
+  .contacts .email { color: rgba(23,35,33,.62); }
+</style>
+</head>
+<body>
+
+<!-- ============ FRONT ============ -->
+<div class="card front" data-side="front">
+  <div class="live">
+    <div class="brand">
+      <div class="mark"><i></i></div>
+      <div>
+        <div class="wordmark mono" data-f="wordmark">xnchsystems</div>
+        <div class="strap mono"     data-f="tagline">governed autonomy</div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="rule"></div>
+    <div class="who">
+      <div class="name" data-f="name">Pavan Kalle</div>
+      <div class="role mono" data-f="role">Founder</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BACK ============ -->
+<div class="card back" data-side="back">
+  <div class="live">
+    <div class="top">
+      <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#172321" d="M0 0.5h7m1 0h1m1 0h2m2 0h1m1 0h1m1 0h7M0 1.5h1m5 0h1m1 0h1m2 0h2m5 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m3 0h1m1 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m5 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m4 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h2m1 0h2m4 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h1m2 0h2m1 0h1M0 8.5h1m2 0h6m1 0h3m1 0h4m2 0h1m1 0h3M0 9.5h2m1 0h1m3 0h1m5 0h3m1 0h1m1 0h5M1 10.5h2m1 0h5m1 0h2m1 0h1m1 0h1m2 0h2m1 0h1m2 0h1M0 11.5h1m3 0h2m2 0h2m1 0h2m1 0h2m3 0h1m1 0h4M2 12.5h1m1 0h7m1 0h1m3 0h1m1 0h1m5 0h1M0 13.5h2m1 0h1m5 0h2m3 0h4m2 0h1m2 0h1M0 14.5h7m4 0h5m1 0h2m1 0h5M0 15.5h1m1 0h2m3 0h2m2 0h1m5 0h1m1 0h1m1 0h2m1 0h1M0 16.5h1m2 0h2m1 0h2m1 0h2m3 0h1m1 0h5m1 0h2M8 17.5h1m2 0h3m2 0h1m3 0h1m1 0h2M0 18.5h7m1 0h4m4 0h1m1 0h1m1 0h1m3 0h1M0 19.5h1m5 0h1m1 0h1m3 0h1m1 0h1m1 0h1m3 0h1m2 0h2M0 20.5h1m1 0h3m1 0h1m1 0h3m1 0h9m2 0h2M0 21.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m4 0h2M0 22.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h4m2 0h5M0 23.5h1m5 0h1m2 0h1m4 0h2m3 0h2m1 0h3M0 24.5h7m1 0h1m4 0h2m1 0h2m3 0h1m2 0h1"/></svg>
+</div>
+      <div class="backline mono" data-f="backline">AI systems &amp; orchestration</div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="contacts">
+      <a class="url mono" data-f="url" href="#">www.x-nch.com</a>
+      <span class="email mono" data-f="email">hello@x-nch.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ bleed guides: visible on screen, stripped for print ============ -->
+<script>
+  const CFG = JSON.parse(document.getElementById('card-data').textContent);
+
+  for (const el of document.querySelectorAll('[data-f]')) {
+    const v = CFG[el.dataset.f];
+    if (v) el.textContent = v;
+  }
+  document.querySelector('[data-f="url"]').href = CFG.urlHref;
+</script>
+</body>
+</html>
